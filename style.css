@@ -1,0 +1,68 @@
+@import 'reset.css';
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    /* Padding will be linked to screen size */
+    padding: 5vh 3vw;
+    margin: 0;
+    /* Our body tag by default is only as tall as it's content, so here we stretch it out */
+    min-height: 100vh;
+    /* Here we enable flexbox, which stacks our boxes side by side by default */
+    display: flex;
+    /* Here we tell our boxes to stack on top of each other */
+    flex-direction: column;
+    /* Here we tell our boxes to spread out and fill the available space and create gaps between them */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top,
+.middle,
+.indicators {
+    text-align: center;
+    position: relative;
+}
+
+*::selection {
+    background-color: #fff;
+    color: #000;
+}
+
+*:focus {
+    outline: none;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.search-input {
+    font-size: 72px;
+}
+
+/* This styles up the placeholder text on our input */
+.search-input::placeholder {
+    color: #323232;
+}
+
+.search-clear,
+.spinner {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    /* Disables interaction whilst the elements are not visible */
+    pointer-events: none;
+}
+
+.search-clear {
+    /* Gives us a pointer that shows is interactive */
+    cursor: pointer;
+}
