@@ -28,6 +28,11 @@ body {
     position: relative;
 }
 
+.middle,
+.search-input {
+    width: 100%;
+}
+
 *::selection {
     background-color: #fff;
     color: #000;
@@ -65,4 +70,29 @@ input {
 .search-clear {
     /* Gives us a pointer that shows is interactive */
     cursor: pointer;
+}
+
+.grid {
+    display: grid;
+    place-items: center;
+}
+
+.full-area {
+    grid-area: 1/1;
+}
+
+.video {
+    /* This tells each child video to take up full width and height of our grid */
+    grid-area: 1/1;
+    max-width: 500px;
+    display: block;
+}
+
+.search-hint {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.show-hint .search-hint {
+    opacity: 1;
 }
