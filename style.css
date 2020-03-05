@@ -1,9 +1,10 @@
 @import 'reset.css';
+@import 'transitions.css';
 
 body {
     background-color: #000;
     color: #fff;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 24px;
     font-weight: bold;
     line-height: 1.5;
@@ -30,7 +31,7 @@ body {
 
 .middle,
 .search-input {
-    width: 100%;
+    width: 94vw;
 }
 
 *::selection {
@@ -64,12 +65,19 @@ input {
     transition: opacity 0.5s ease;
     opacity: 0;
     /* Disables interaction whilst the elements are not visible */
-    pointer-events: none;
+    /*pointer-events: none;*/
 }
 
-.search-clear {
+.has-results .search-clear {
     /* Gives us a pointer that shows is interactive */
     cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    position: relative;
+    z-index: 1;
 }
 
 .grid {
@@ -85,14 +93,56 @@ input {
     /* This tells each child video to take up full width and height of our grid */
     grid-area: 1/1;
     max-width: 500px;
+    max-height: 500px;
     display: block;
 }
 
-.search-hint {
+.search-hint,
+.spinner {
     opacity: 0;
     transition: opacity 0.5s ease;
 }
 
-.show-hint .search-hint {
+.show-hint .search-hint,
+.loading .spinner,
+.has-results .search-clear {
     opacity: 1;
+}
+
+.loading .search-hint,
+.has-results .title {
+    opacity: 0;
+}
+
+.title {
+    transition: opacity .5s ease;
+}
+
+.video {
+    width: 100%;
+}
+
+.videos {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.search-input {
+    width: 94vw;
+    line-height: 1;
+    height: 88px;
+}
+
+/* Responsive styles */
+@media (max-width: 580px) {
+
+    .body {
+        font-size: 18px;
+    }
+
+    .search-input {
+        font-size: 43px;
+    }
+
 }
